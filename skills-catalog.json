@@ -1,0 +1,9 @@
+{
+  "catalogVersion": 1,
+  "skills": [
+    { "name": "planning", "path": "skills/planning", "category": "Planes y escritura", "requires": ["narrative-summary"], "editable": ["project.md"] },
+    { "name": "narrative-summary", "path": "skills/narrative-summary", "category": "Planes y escritura" },
+    { "name": "code-audit", "path": "skills/code-audit", "category": "Calidad", "requires": ["test-audit"], "editable": ["project.md"] },
+    { "name": "test-audit", "path": "skills/test-audit", "category": "Calidad", "editable": ["project.md"] }
+  ]
+}

@@ -1,0 +1,27 @@
+# test-audit en este repo
+
+Lo propio de este repo para la skill `test-audit`. Este archivo es del repo:
+edítalo; las actualizaciones de la skill no lo tocan. Lo que dejes como está
+usa lo que dice la skill.
+
+## Comandos
+
+| Qué | Comando |
+|---|---|
+| Correr un archivo | `npm test -- <archivo>` |
+| Repetirlo 5 veces | (sin definir: un bucle de 5 corridas) |
+| Orden aleatorio | (sin definir) |
+
+## Estrategia de tests
+
+- **Documento:** ninguno.
+- **Payloads reales grabados:** (sin definir; por ejemplo `fixtures/`).
+
+## E2E
+
+- **Runner:** (sin definir; por ejemplo Playwright en `e2e/`).
+- **Plataformas que cada recorrido debe cubrir:** (sin definir).
+
+## Casos reales
+
+Cada test que no probaba lo que decía: causa y arreglo. Ninguno todavía.
