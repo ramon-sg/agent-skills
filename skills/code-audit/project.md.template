@@ -1,0 +1,45 @@
+# code-audit en este repo
+
+Lo propio de este repo para la skill `code-audit`. Este archivo es del repo:
+edítalo; las actualizaciones de la skill no lo tocan. Lo que dejes como está
+usa lo que dice la skill.
+
+## Rama base
+
+`main`
+
+## Comandos
+
+| Qué | Comando |
+|---|---|
+| Lint | (sin definir: busca el script del repo) |
+| Tipos | (sin definir) |
+| Formato | (sin definir) |
+
+## Convenciones por ruta
+
+Las reglas generales están en `reference/conventions.md` de la skill y llegan
+con cada actualización. Acá van solo las de este repo, por zona; si
+contradicen a las generales, ganan estas. Solo lo que el linter no ve. Un
+hallazgo de acá entra al reporte si causa un bug o rompe un contrato, o como
+MENOR. Si algo contradice a un `CLAUDE.md`, gana el `CLAUDE.md`.
+
+Ninguna todavía.
+
+<!-- Una sección por zona del repo, por ejemplo:
+### Servidor — `apps/server/**`
+
+| Regla | Detectar |
+|---|---|
+| Rutas delgadas | Lógica de negocio en el handler en vez de un servicio |
+-->
+
+## Riesgos conocidos
+
+Lo que en este repo ya rompió algo o cuesta caro si se rompe (límites de un
+servicio, dinero, datos de clientes). Ninguno anotado todavía.
+
+## Casos reales
+
+Cada bug que se escape a este review: causa, arreglo y qué se revisa ahora.
+Ninguno todavía.

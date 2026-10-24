@@ -1,0 +1,16 @@
+{
+  "name": "agent-skills",
+  "private": true,
+  "description": "Agent skills for any project, installed with @ramon-sg/skills-manager.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@ramon-sg/skills-manager": "1.1.0"
+  }
+}
