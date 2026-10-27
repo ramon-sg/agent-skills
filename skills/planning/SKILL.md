@@ -69,6 +69,10 @@ script avisa y quien escribe decide si sobra algo.
   antes que la otra y en qué orden se despliegan.
 - Pregunta solo lo que el código no responde, una pregunta a la vez. Si hay
   dudas reales de enfoque, propón dos o tres opciones con tu recomendación.
+- Si una pregunta se entiende mejor viéndola (pantallas, layout, un flujo,
+  dos diseños lado a lado), ofrece `visual-preview` y sigue su skill. Lo que
+  el usuario elige pasa al plan en palabras ("lista primero, filtros en una
+  hoja inferior"); los mockups no se enlazan, porque no se commitean.
 - Anota la evidencia de cada hecho en el momento (`archivo:línea`, un
   comando y su salida). Solo de los hechos de los que depende el cambio: si
   el hecho fuera falso, ¿el plan cambiaría? Si no, no va.

@@ -1,13 +1,14 @@
 # agent-skills
 
-Skills de agente que sirven en cualquier proyecto: planificar, explicar en lenguaje llano, revisar un cambio y juzgar tests. Se instalan con [`@ramon-sg/skills-manager`](https://github.com/ramon-sg/skills-manager), que las copia a `.agents/skills/` del repo para que funcionen también en las sesiones de Claude en la nube.
+Skills de agente que sirven en cualquier proyecto: planificar, explicar en lenguaje llano, mostrar mockups en el navegador, revisar un cambio y juzgar tests. Se instalan con [`@ramon-sg/skills-manager`](https://github.com/ramon-sg/skills-manager), que las copia a `.agents/skills/` del repo para que funcionen también en las sesiones de Claude en la nube.
 
 ## Skills
 
 | Skill | Categoría | Para qué sirve | Trae también |
 |---|---|---|---|
-| `planning` | Planes y escritura | Un plan corto en un solo documento, con tope de palabras por tipo (bug, feature, refactor) que comprueba un script | `narrative-summary` |
+| `planning` | Planes y escritura | Un plan corto en un solo documento, con tope de palabras por tipo (bug, feature, refactor) que comprueba un script | `narrative-summary`, `visual-preview` |
 | `narrative-summary` | Planes y escritura | La parte "En simple" de planes e issues, y explicaciones en lenguaje llano | — |
+| `visual-preview` | Planes y escritura | Mockups en HTML en una pestaña del navegador que se recarga sola, para decidir pantallas y layouts viéndolos; el usuario elige con un clic. Requiere Node | — |
 | `code-audit` | Calidad | Una revisión antes del PR, proporcional al cambio, que termina con un veredicto JSON | `test-audit` |
 | `test-audit` | Calidad | Si los tests prueban de verdad lo que dicen, con puertas de determinismo y mutación | — |
 
@@ -53,7 +54,7 @@ Cada skill se actualiza por separado. Una versión publicada es una tag `vX.Y.Z`
 npm install && npm test
 ```
 
-Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió, el script de `planning` y una instalación completa con `skills-manager`.
+Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió, el script de `planning`, el servidor de `visual-preview` y una instalación completa con `skills-manager`.
 
 ## Relacionados
 
@@ -62,4 +63,4 @@ Los tests comprueban que el catálogo y las carpetas coincidan, que los links en
 
 ## Licencia
 
-MIT
+MIT. Los scripts de `visual-preview` vienen del "Visual Companion" de [superpowers](https://github.com/obra/superpowers) (MIT, Copyright (c) 2025 Jesse Vincent) y conservan su aviso.
