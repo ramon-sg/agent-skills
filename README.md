@@ -1,6 +1,6 @@
 # agent-skills
 
-Skills de agente que sirven en cualquier proyecto: planificar, explicar en lenguaje llano, mostrar mockups en el navegador, revisar un cambio y juzgar tests. Se instalan con [`@ramon-sg/skills-manager`](https://github.com/ramon-sg/skills-manager), que las copia a `.agents/skills/` del repo para que funcionen también en las sesiones de Claude en la nube.
+Skills de agente que sirven en cualquier proyecto: planificar, explicar en lenguaje llano, mostrar mockups en el navegador, revisar un cambio, juzgar tests y usar la API de la versión instalada de cada biblioteca. Se instalan con [`@ramon-sg/skills-manager`](https://github.com/ramon-sg/skills-manager), que las copia a `.agents/skills/` del repo para que funcionen también en las sesiones de Claude en la nube.
 
 ## Skills
 
@@ -11,6 +11,7 @@ Skills de agente que sirven en cualquier proyecto: planificar, explicar en lengu
 | `visual-preview` | Planes y escritura | Mockups en HTML en una pestaña del navegador que se recarga sola, para decidir pantallas y layouts viéndolos; el usuario elige con un clic. Requiere Node | — |
 | `code-audit` | Calidad | Una revisión antes del PR, proporcional al cambio, que termina con un veredicto JSON | `test-audit` |
 | `test-audit` | Calidad | Si los tests prueban de verdad lo que dicen, con puertas de determinismo y mutación | — |
+| `installed-version-docs` | Dependencias | Un bloque en `AGENTS.md` con la versión instalada de cada dependencia y dónde está su documentación, para que el agente no use una API vieja; un script lo regenera cuando cambia el lock. Requiere Node | — |
 
 Las skills están en español. Cada una es una carpeta en `skills/`, y `skills-catalog.json` las lista con su categoría, lo que necesitan y sus archivos editables.
 
@@ -54,7 +55,7 @@ Cada skill se actualiza por separado. Una versión publicada es una tag `vX.Y.Z`
 npm install && npm test
 ```
 
-Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió, el script de `planning`, el servidor de `visual-preview` y una instalación completa con `skills-manager`.
+Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió, el script de `planning`, el servidor de `visual-preview`, el generador de `installed-version-docs` y una instalación completa con `skills-manager`.
 
 ## Relacionados
 
