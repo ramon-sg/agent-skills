@@ -2,7 +2,8 @@
  * @file Checks the catalog against the skills on disk: every listed skill
  * exists with a matching `SKILL.md`, its `requires` and editable templates are
  * there, every skill folder is listed, the relative links inside the skills
- * resolve, and no project name leaks into a shared skill.
+ * resolve, no project name leaks into a shared skill, and no skill hardcodes
+ * `npx`.
  */
 import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
@@ -96,6 +97,12 @@ describe("skill contents", () => {
   test("no file of a shared skill names the project it came from", () => {
     for (const file of files(join(ROOT, "skills"))) {
       assert.doesNotMatch(readFileSync(file, "utf8"), PROJECT_NAMES, file);
+    }
+  });
+
+  test("no file of a shared skill hardcodes npx; tools run as .agents/runner.json says", () => {
+    for (const file of files(join(ROOT, "skills"))) {
+      assert.doesNotMatch(readFileSync(file, "utf8"), /\bnpx\b/, file);
     }
   });
 });
