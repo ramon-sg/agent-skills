@@ -17,14 +17,16 @@ Las skills están en español. Cada una es una carpeta en `skills/`, y `skills-c
 ## Instalar
 
 ```sh
-npx @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills
+bunx --bun @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills
 ```
+
+Los comandos usan Bun. Con Node, cambia `bunx --bun` por `npx --yes`. Si el repo tiene `.agents/runner.json`, usa el ejecutor (`runner`) y la versión de `@ramon-sg/skills-manager` que fija ese archivo en vez de `@1`.
 
 Se abre un menú agrupado por categoría, con la descripción de cada skill. En un repo sin `.agents/skills.json`, usa `init` en vez de `add`. Sin terminal (por ejemplo desde un agente):
 
 ```sh
-npx @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills --candidates
-npx @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills --select catalog:ramon-sg/agent-skills/planning
+bunx --bun @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills --candidates
+bunx --bun @ramon-sg/skills-manager@1 add --catalog ramon-sg/agent-skills --select catalog:ramon-sg/agent-skills/planning
 ```
 
 Commitea lo que queda en `.agents/`: así las skills llegan también a la nube.
@@ -42,11 +44,22 @@ Si `project.md` sigue igual que la plantilla, cada skill usa lo que dice por def
 ## Actualizar
 
 ```sh
-npx @ramon-sg/skills-manager@1 update --dry-run   # qué cambiaría
-npx @ramon-sg/skills-manager@1 update planning    # solo esa skill
+bunx --bun @ramon-sg/skills-manager@1 update --dry-run   # qué cambiaría
+bunx --bun @ramon-sg/skills-manager@1 update planning    # solo esa skill
 ```
 
 Cada skill se actualiza por separado. Una versión publicada es una tag `vX.Y.Z` de este repo.
+
+## Herramientas que usan las skills
+
+Las skills no escriben `npx` ni un ejecutor fijo. Cuando una necesita una herramienta (por ejemplo, `code-audit` usa `@ramon-sg/github-rest` para encontrar el PR), la corre con el ejecutor y la versión que fija `.agents/runner.json`:
+
+| `runner` | Comando |
+|---|---|
+| `bun` (por defecto) | `bunx --bun <paquete>@<versión> <args>` |
+| `node` | `npx --yes <paquete>@<versión> <args>` |
+
+Si el repo no tiene ese archivo o no fija la herramienta, la skill sigue sin ella (`code-audit` busca el PR con git y `gh`).
 
 ## Desarrollo
 
@@ -54,7 +67,7 @@ Cada skill se actualiza por separado. Una versión publicada es una tag `vX.Y.Z`
 npm install && npm test
 ```
 
-Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió, el script de `planning`, el servidor de `visual-preview` y una instalación completa con `skills-manager`.
+Los tests comprueban que el catálogo y las carpetas coincidan, que los links entre skills resuelvan, que ninguna skill nombre el proyecto del que salió ni escriba `npx`, el script de `planning`, el servidor de `visual-preview` y una instalación completa con `skills-manager`.
 
 ## Relacionados
 
